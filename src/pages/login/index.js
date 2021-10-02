@@ -19,28 +19,21 @@ import {
 
 export const Login = ({ props, setUser }) => {
   const input = useRef(null);
-  const [message, setMessage] = useState("");
-  const [type, setType] = useState(0);
+  const [message, setMessage] = useState([]);
 
-  const handleClick = () => {
-    if (input.current.value === "") {
-      setType(0);
-      setMessage("Campo Github Username em branco!");
-    } else {
-      githubApi.get(input.current.value)
-        .then((response) => {
-          setType(1);
-          setMessage("Usuário carregado com Sucesso!");
-          setTimeout(() => {
-            setUser(response.data);
-            props.history.push(`/playlists`);
-          }, 3000);
-        })
-        .catch((err) => {
-          setType(0);
-          setMessage("Esse usuário não existe no Github!");
-        });
-    }
+  const handleClick = async () => {
+    await githubApi
+      .get(input.current.value)
+      .then((response) => {
+        setMessage(["Usuário carregado com Sucesso!", 1]);
+        setTimeout(() => {
+          setUser(response.data);
+          props.history.push(`/playlists`);
+        }, 3000);
+      })
+      .catch(() => {
+        setMessage(["Esse usuário não existe no Github!", 0]);
+      });
   };
 
   return (
@@ -65,7 +58,7 @@ export const Login = ({ props, setUser }) => {
                 VISITAR
               </Entrar>
             </LinkGroup>
-            <Response type={type}>{message}</Response>
+            <Response message={message[1]}>{message[0]}</Response>
           </LoginForm>
         </Container>
       </LoginContent>

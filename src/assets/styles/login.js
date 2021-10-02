@@ -91,5 +91,5 @@ export const Entrar = styled.a`
 
 export const Response = styled.div`
   text-align: center;
-  color: ${({ type }) => (type ? "var(--green)" : "var(--red)")};
+  color: ${({ message }) => (message ? "var(--green)" : "var(--red)")};
 `;
