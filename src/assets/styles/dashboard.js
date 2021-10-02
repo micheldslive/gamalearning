@@ -80,11 +80,15 @@ export const BurgerStyle = styled.button`
   span {
     width: 2rem;
     height: 0.25rem;
-    background: ${({ aside }) => (aside ? "var(--green)" : "var(--purple)")};;
+    background: var(--purple);
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
+
+    @media (max-width: 992px) {
+      background: ${({ aside }) => (aside ? "var(--green)" : "var(--purple)")};
+    }
 
     :first-child {
       transform: ${({ aside }) => (aside ? "rotate(45deg)" : "rotate(0)")};
