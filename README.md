@@ -6,7 +6,7 @@
 
 ### Sobre
 
-Casca Grossa é um pequeno projeto de e-commerce, idealizado / desenvolvido durante o bootcamp Gama Experience da Gama Academy.
+Gama Academy (Learning) é um pequeno projeto de e-learning, idealizado / desenvolvido para que alunos e professores possam continuar a aprender e ensinar em qualquer lugar e a qualquer hora.
 
 -------------------------------------
 ### Pré-visualização do Projeto: https://gamaxplearning.netlify.app/
