@@ -1,0 +1,8 @@
+@font-face {font-family: "Monument Extended";
+    src: url("./Monument.eot"); /* IE9*/
+    src: url("./Monument.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./Monument.woff2") format("woff2"), /* chrome firefox */
+    url("./Monument.woff") format("woff"), /* chrome firefox */
+    url("./Monument.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("./Monument.svg#Monument Extended") format("svg"); /* iOS 4.1- */
+}
