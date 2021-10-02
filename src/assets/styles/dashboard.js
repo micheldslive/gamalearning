@@ -86,7 +86,7 @@ export const BurgerStyle = styled.button`
     position: relative;
     transform-origin: 1px;
 
-    @media (max-width: 992px) {
+    @media (max-width: 991px) {
       background: ${({ aside }) => (aside ? "var(--green)" : "var(--purple)")};
     }
 
