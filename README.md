@@ -9,7 +9,7 @@
 Gama Academy (Learning) é um pequeno projeto de E-learning, idealizado / desenvolvido para que alunos e professores possam continuar a aprender e ensinar em qualquer lugar e a qualquer hora.
 
 -------------------------------------
-### 👀 Pré-visualização do Projeto: https://gamaxplearning.netlify.app/
+### 👀 Pré-visualização do Projeto: https://gamalearning.vercel.app/
 <img src="https://github.com/micheldslive/gamalearning/blob/gamalearning/demo/demo.gif" width="700"   />
 
 -------------------------------------
