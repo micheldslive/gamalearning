@@ -12,7 +12,7 @@ import {
   CardTitle,
   CardImage,
   CardImageUrl,
-} from "./styles";
+} from "../../assets/styles/playlists";
 
 export class Playlists extends Component {
   render() {
