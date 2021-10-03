@@ -4,7 +4,7 @@
 
 ### Sobre
 
-Gama Academy (Learning) é um pequeno projeto de E-learning, idealizado / desenvolvido para que alunos e professores possam continuar a aprender e ensinar em qualquer lugar e a qualquer hora.
+Gama Academy (Learning) é um pequeno projeto E-learning, idealizado / desenvolvido para que alunos e professores possam continuar a aprender e ensinar em qualquer lugar e a qualquer hora.
 
 -------------------------------------
 ### 👀 Pré-visualização do Projeto: https://gamalearning.vercel.app/
