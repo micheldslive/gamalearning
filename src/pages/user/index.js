@@ -13,8 +13,8 @@ import {
   RespositoriesIcon,
   FollowersIcon,
   MapPinIcon,
-} from "../../assets/styles/user";
-import { Avatar } from "../../assets/styles/dashboard";
+} from "assets/styles/user";
+import { Avatar } from "assets/styles/dashboard";
 
 export const User = ({ user }) => {
     

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import AsideImageUrl from "../images/hacker-header-icon.png";
+import AsideImageUrl from "assets/images/hacker-header-icon.png";
 
 export { AsideImageUrl };
 

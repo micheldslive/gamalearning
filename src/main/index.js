@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AnimatedSwitch } from "react-router-transition";
-import { Login } from "../pages/login";
-import { User } from "../pages/user";
-import { Playlists } from "../pages/playlists";
-import { Video } from "../pages/videos";
-import { AsideIn } from "../pages/asidein";
-import { AsideOut } from "../pages/asideout";
-import { Page404 } from "../pages/404";
+import { Login } from "pages/login";
+import { User } from "pages/user";
+import { Playlists } from "pages/playlists";
+import { Video } from "pages/videos";
+import { AsideIn } from "pages/asidein";
+import { AsideOut } from "pages/asideout";
+import { Page404 } from "pages/404";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { AsideFixed, AsideToggle } from "../assets/styles/aside";
+import { AsideFixed, AsideToggle } from "assets/styles/aside";
 import {
   Dashboard,
   MainPage,
@@ -25,7 +25,7 @@ import {
   UserAvatar,
   Avatar,
   Link,
-} from "../assets/styles/dashboard";
+} from "assets/styles/dashboard";
 
 const Burger = ({ aside, setOpen }) => {
   return (

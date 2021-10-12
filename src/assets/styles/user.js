@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import RespositoriesIcon from "../images/repositories.png";
-import FollowersIcon from "../images/followers.png";
-import MapPinIcon from "../images/map-pin.png";
+import RespositoriesIcon from "assets/images/repositories.png";
+import FollowersIcon from "assets/images/followers.png";
+import MapPinIcon from "assets/images/map-pin.png";
 
 export { RespositoriesIcon, FollowersIcon, MapPinIcon };
 

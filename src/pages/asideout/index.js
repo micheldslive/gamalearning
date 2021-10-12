@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { AsideOpen } from "../../assets/styles/aside"
+import { AsideOpen } from "assets/styles/aside"
 
 export const AsideOut = ({ setOpen }) => {
   const ref = useRef(null);

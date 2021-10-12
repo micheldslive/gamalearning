@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet-async";
 import Row from "react-bootstrap/Row";
-import { playlists } from "../../services/playlists";
+import { playlists } from "services/playlists";
 import {
   Playlist,
   Container,
@@ -12,7 +12,7 @@ import {
   CardTitle,
   CardImage,
   CardImageUrl,
-} from "../../assets/styles/playlists";
+} from "assets/styles/playlists";
 
 export class Playlists extends Component {
   render() {

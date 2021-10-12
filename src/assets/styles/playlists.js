@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Col from "react-bootstrap/Col";
-import CardImageUrl from "../images/stack-hacker-logo-verde.png";
+import CardImageUrl from "assets/images/stack-hacker-logo-verde.png";
 
 export { CardImageUrl };
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet-async";
-import { MainError, Container, Error, ErrorMsg, Link } from "../../assets/styles/erro";
+import { MainError, Container, Error, ErrorMsg, Link } from "assets/styles/erro";
 
 export class Page404 extends Component {
   render() {

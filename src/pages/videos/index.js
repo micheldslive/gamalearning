@@ -1,9 +1,18 @@
 import React, { useRef, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
-import { playlists } from "../../services/playlists";
+import { playlists } from "services/playlists";
 import VideoJS from "./videojs";
-import { PlaylistContent, Container, Title, Subtitle, Playlists, Burger, Bullets, PlaylistTitle } from "../../assets/styles/video";
+import {
+  PlaylistContent,
+  Container,
+  Title,
+  Subtitle,
+  Playlists,
+  Burger,
+  Bullets,
+  PlaylistTitle,
+} from "assets/styles/video";
 
 export const Video = ({ props, checked }) => {
 

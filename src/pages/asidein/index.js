@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { playlists } from "../../services/playlists";
+import { playlists } from "services/playlists";
 import {
   AsideImage,
   AsideImageUrl,
@@ -8,7 +8,7 @@ import {
   AsideSmall,
   AsideTitle,
   AsideOpen,
-} from "../../assets/styles/aside";
+} from "assets/styles/aside";
 
 import {
   AutoPlayContent,
@@ -17,7 +17,7 @@ import {
   AutoPlayLayer,
   AutoPlayCheck,
   AutoPlayKnobs,
-} from "../../assets/styles/autoplay";
+} from "assets/styles/autoplay";
 
 import {
   LessonsContent,
@@ -31,7 +31,7 @@ import {
   LessonIconUrl,
   LessonTitle,
 
-} from "../../assets/styles/lessons"
+} from "assets/styles/lessons"
 
 export const AsideIn = ({ aside, setOpen, props, checked, setChecked }) => {
   const ref = useRef(null);

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { githubApi } from "../../services/github";
+import { githubApi } from "services/github";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
@@ -15,7 +15,7 @@ import {
   GithubIcon,
   Icon,
   Response,
-} from "../../assets/styles/login";
+} from "assets/styles/login";
 
 export const Login = ({ props, setUser }) => {
   const input = useRef(null);

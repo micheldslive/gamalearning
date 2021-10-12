@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import GithubIcon from "../images/github.svg";
+import GithubIcon from "assets/images/github.svg";
 
 export { GithubIcon };
 

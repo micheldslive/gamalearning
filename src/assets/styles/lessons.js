@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import LessonHeaderUrl from "../images/aside-menu.png";
-import LessonIconUrl from "../images/stack-hacker-ico.png";
+import LessonHeaderUrl from "assets/images/aside-menu.png";
+import LessonIconUrl from "assets/images/stack-hacker-ico.png";
 
 export { LessonIconUrl };
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import Logo from "../images/logo-gama.png";
-import Avatar from "../images/user-img.jpg";
+import Logo from "assets/images/logo-gama.png";
+import Avatar from "assets/images/user-img.jpg";
 
 export { Logo, Avatar };
 
