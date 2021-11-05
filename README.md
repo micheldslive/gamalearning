@@ -34,13 +34,13 @@ Site composto por 4 seções:
 
 - **login:** Página incial com conexão ao perfil do Github;
 - **playlists:** Página para escolha da Playlist;
-- **playlists:id:id:** Página que executará a playlist escolhida utilizando paremetros na url;
+- **playlists:id:::id::** Página que executará a playlist escolhida utilizando paremetros na url;
 - **user:** Página que exibe algumas infos do perfil digitado na página de Login;
 
 ---
 
 ## 🚀 Tecnologias utilizadas
-- ReactJS
+- ReactJS<br>
      ✔  Layout responsivo e Estilização CSS utilizando `styled components` e o sistema de `grids bootstrap`.
 
      ✔  Requisição API Github utilizando o `axios`.
