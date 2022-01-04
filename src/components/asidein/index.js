@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { playlists } from "services/playlists";
+import { connect } from "react-redux";
+import { mapStateToProps, mapDispatchToProps } from "redux/maps";
 import {
   AsideImage,
   AsideImageUrl,
@@ -30,31 +31,28 @@ import {
   LessonIcon,
   LessonIconUrl,
   LessonTitle,
-
 } from "assets/styles/lessons"
 
-export const AsideIn = ({ aside, setOpen, props, checked, setChecked }) => {
+const AsideIn = ({ props, state, toggleAside, toggleChecked }) => {
+
+  const { modules, aside, checked } = state;
+  const module = props.match.params - 1;
+
   const ref = useRef(null);
-  const id = props.match.params.id ? props.match.params.id : "";
-  const playlist = playlists[id] ? playlists[id] : playlists[0];
+
+  const playlist = modules[module] || modules[0];
+
   const  width = window.innerWidth;
   useEffect(() => {
-   
     if (width > 992) {
       ref.current.click();
     }
   }, [width]);
 
-  const Test = () => {
-    if (width < 992) {
-      ref.current.click();
-    }
-  }
-
   return (
     <>
       <div>
-      <AsideOpen ref={ref} onClick={() => setOpen(!aside)}></AsideOpen>
+      <AsideOpen ref={ref} onClick={() => toggleAside(!aside)}></AsideOpen>
       <NavLink to="/playlists">
         <AsideImage src={AsideImageUrl}></AsideImage>
       </NavLink>
@@ -68,7 +66,7 @@ export const AsideIn = ({ aside, setOpen, props, checked, setChecked }) => {
           Reprodução<br />Automatica:
         </AutoPlayText>
         <AutoPlay>
-          <AutoPlayCheck type="checkbox" checked={checked} onClick={() => setChecked(!checked)} readOnly/>
+          <AutoPlayCheck type="checkbox" checked={checked} onClick={() => toggleChecked(!checked)} readOnly/>
           <AutoPlayKnobs />
           <AutoPlayLayer />
         </AutoPlay>
@@ -79,11 +77,11 @@ export const AsideIn = ({ aside, setOpen, props, checked, setChecked }) => {
         </LessonsHeader>
         <LessonsBody>
           <LessonsList>
-          {playlist.videos.map((video, index) => (
-              <LessonLink key={video.id} to={`/playlists/${playlist.id}/${index+1}`} activeClassName="active" onClick={Test}>
+          {playlist.videos.map(({id, name}) => (
+              <LessonLink key={id} to={`/playlists/${playlist.id}/${id}`} activeClassName="active">
                 <Lesson>
                   <LessonIcon src={LessonIconUrl} />
-                  <LessonTitle>{video.name}</LessonTitle>
+                  <LessonTitle>{name}</LessonTitle>
                 </Lesson>
               </LessonLink>
             ))}
@@ -93,3 +91,5 @@ export const AsideIn = ({ aside, setOpen, props, checked, setChecked }) => {
     </>
   );
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(AsideIn);

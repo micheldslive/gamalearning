@@ -12,7 +12,7 @@ export const AsideImage = styled.img`
 
 export const AsideToggle = styled.div`
   background-color: var(--purple);
-  width: ${({ aside }) => (aside ? "350px" : "0")};
+  width: ${(props) => (props.theme.aside ? "350px" : "0")};
   transition: width 0.2s linear;
 `;
 
@@ -24,7 +24,7 @@ export const AsideFixed = styled.div`
   top: 0;
   height: 100%;
   transition: transform 0.2s linear;
-  transform: ${({ aside }) => (!aside ? "translateX(-350px)" : "")};
+  transform: ${(props) => (!props.theme.aside ? "translateX(-350px)" : "")};
   background-color: var(--purple);
   display: grid;
   grid-template-columns: 1fr;
@@ -44,7 +44,7 @@ export const AsideFixed = styled.div`
 
   @media (max-width: 991px) {
     width: 100%;
-    transform: ${({ aside }) => (!aside ? "translateX(-100%)" : "")};
+    transform: ${(props) => (!props.theme.aside ? "translateX(-100%)" : "")};
   }
 `;
 

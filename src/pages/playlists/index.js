@@ -1,7 +1,7 @@
-import React, { Component } from "react";
 import { Helmet } from "react-helmet-async";
 import Row from "react-bootstrap/Row";
-import { playlists } from "services/playlists";
+import { connect } from "react-redux";
+import { mapDispatchToProps, mapStateToProps } from "redux/maps";
 import {
   Playlist,
   Container,
@@ -14,35 +14,37 @@ import {
   CardImageUrl,
 } from "assets/styles/playlists";
 
-export class Playlists extends Component {
-  render() {
-    return (
-      <>
-        <Helmet>
-          <title>Playlists</title>
-          <meta name="description" content="Playlists of Course." />
-        </Helmet>
-        <Playlist>
-          <Container>
-            <Row>
-              {playlists.map((playlist) => (
-                <Column lg={4} key={playlist.id}>
-                  <CardLink to={`/playlists/${playlist.id}/1`}>
-                    <Card>
-                      <CardBox>
-                        <CardTitle>
-                          {playlist.week} - {playlist.name}
-                        </CardTitle>
-                        <CardImage src={CardImageUrl} />
-                      </CardBox>
-                    </Card>
-                  </CardLink>
-                </Column>
-              ))}
-            </Row>
-          </Container>
-        </Playlist>
-      </>
-    );
-  }
-}
+const Playlists = ({ state }) => {
+  const { modules } = state;
+
+  return (
+    <>
+      <Helmet>
+        <title>Playlists</title>
+        <meta name="description" content="Playlists of Course." />
+      </Helmet>
+      <Playlist>
+        <Container>
+          <Row>
+            {modules.map(({ id, week, name }) => (
+              <Column lg={4} key={id}>
+                <CardLink to={`/playlists/${id}/1`}>
+                  <Card>
+                    <CardBox>
+                      <CardTitle>
+                        {week} - {name}
+                      </CardTitle>
+                      <CardImage src={CardImageUrl} />
+                    </CardBox>
+                  </Card>
+                </CardLink>
+              </Column>
+            ))}
+          </Row>
+        </Container>
+      </Playlist>
+    </>
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Playlists);

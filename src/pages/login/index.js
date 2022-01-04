@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react";
 import { githubApi } from "services/github";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { connect } from "react-redux";
+import { mapDispatchToProps, mapStateToProps } from "redux/maps";
 import {
   LoginContent,
   Container,
@@ -17,7 +19,7 @@ import {
   Response,
 } from "assets/styles/login";
 
-export const Login = ({ props, setUser }) => {
+const Login = ({ props, toggleUser }) => {
   const input = useRef(null);
   const [message, setMessage] = useState([]);
 
@@ -27,7 +29,7 @@ export const Login = ({ props, setUser }) => {
       .then((response) => {
         setMessage(["Usuário carregado com Sucesso!", 1]);
         setTimeout(() => {
-          setUser(response.data);
+          toggleUser(response.data);
           props.history.push(`/playlists`);
         }, 3000);
       })
@@ -65,3 +67,5 @@ export const Login = ({ props, setUser }) => {
     </>
   );
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

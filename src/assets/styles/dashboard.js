@@ -70,7 +70,7 @@ export const BurgerStyle = styled.button`
   z-index: 10;
 
   @media (max-width: 991px) {
-    position: ${({ aside }) => (aside ? "fixed" : "")};
+    position: ${(props) => (props.theme.aside ? "fixed" : "")};
   }
 
   &:focus {
@@ -87,21 +87,20 @@ export const BurgerStyle = styled.button`
     transform-origin: 1px;
 
     @media (max-width: 991px) {
-      background: ${({ aside }) => (aside ? "var(--green)" : "var(--purple)")};
+      background: ${(props) => (props.theme.aside ? "var(--green)" : "var(--purple)")};
     }
 
     :first-child {
-      transform: ${({ aside }) => (aside ? "rotate(45deg)" : "rotate(0)")};
+      transform: ${(props) => (props.theme.aside ? "rotate(45deg)" : "rotate(0)")};
     }
 
     :nth-child(2) {
-      opacity: ${({ aside }) => (aside ? "0" : "1")};
-      transform: ${({ aside }) =>
-        aside ? "translateX(20px)" : "translateX(0)"};
+      opacity: ${(props) => (props.theme.aside ? "0" : "1")};
+      transform: ${(props) => (props.theme.aside ? "translateX(20px)" : "translateX(0)")};
     }
 
     :nth-child(3) {
-      transform: ${({ aside }) => (aside ? "rotate(-45deg)" : "rotate(0)")};
+      transform: ${(props) => (props.theme.aside ? "rotate(-45deg)" : "rotate(0)")};
     }
   }
 `;

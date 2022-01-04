@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { useLocation } from "react-router-dom";
-import { playlists } from "services/playlists";
-import VideoJS from "./videojs";
+import { connect } from "react-redux";
+import { mapDispatchToProps, mapStateToProps } from "redux/maps";
+import VideoJS from "utils/videojs";
 import {
   PlaylistContent,
   Container,
@@ -14,35 +14,33 @@ import {
   PlaylistTitle,
 } from "assets/styles/video";
 
-export const Video = ({ props, checked }) => {
+const Video = ({ props, state }) => {
+  const { checked, modules } = state;
 
   const playerRef = useRef(null);
-  const id = props.match.params.id;
-  const vid = props.match.params.vid - 1;
+  const module = props.match.params.module - 1,
+        lesson = props.match.params.lesson - 1;
 
-  const playlist = playlists[id] ? playlists[id] : playlists[0];
-  const video = playlist.videos[vid]
-    ? playlist.videos[vid]
-    : playlist.videos[0];
-
-  const location = useLocation();
+  const activeModule = modules[module] || modules[0];
+  const activeLesson = activeModule.videos[lesson] || activeModule.videos[0];
 
   useEffect(() => {
     window.scrollTo(0, 152);
+
     if (playerRef.current) {
-      playerRef.current.src([{ src: video.src, type: "video/mp4" }]);
+      playerRef.current.src([{ src: activeLesson.src, type: "video/mp4" }]);
     }
-  }, [location, video.src]);
+  }, [activeLesson]);
 
   const videoJsOptions = {
-    autoplay: false,
+    autoplay: checked,
     controls: true,
     responsive: true,
     fluid: true,
     tracks: [],
     sources: [
       {
-        src: video.src,
+        src: activeLesson.src,
         type: "video/mp4",
       },
     ],
@@ -53,33 +51,17 @@ export const Video = ({ props, checked }) => {
   }
 
   const handlePlayerReady = (player) => {
-    if (!playlists[id] || !playlist.videos[vid]) {
-      props.history.push(`/playlists`);
+    if (!modules[module] || !activeModule.videos[lesson]) {
+      props.history.push(`/playlists/1/1`);
     }
 
     playerRef.current = player;
-
-    player.on("ended", () => {
-      if (player.autoplay()) {
-        const pid = props.match.params.id;
-        const qvid = playlists[pid].videos.length + 1;
-        const src = playerRef.current.src();
-        const find = playlists[pid].videos.find(video => video.src === src);
-        const vid = parseInt(find.id) + 1;
-
-        if (vid < qvid) {
-          props.history.push(`/playlists/${pid}/${vid}`);
-        } else {
-          player.autoplay(false);
-        }
-      }
-    });
   };
 
   return (
     <>
       <Helmet>
-        <title>Playlist - {video.name}</title>
+        <title>Playlist - {activeLesson?.name}</title>
         <meta name="description" content="Playlist of Course." />
       </Helmet>
       <PlaylistContent>
@@ -92,11 +74,13 @@ export const Video = ({ props, checked }) => {
             </Burger>
             <PlaylistTitle>Playlists</PlaylistTitle>
           </Playlists>
-          <Title>{video.name}</Title>
-          <Subtitle>{playlist.name}</Subtitle>
+          <Title>{activeLesson?.name}</Title>
+          <Subtitle>{activeModule?.name}</Subtitle>
           <VideoJS options={videoJsOptions} onReady={handlePlayerReady} />
         </Container>
       </PlaylistContent>
     </>
   );
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Video);

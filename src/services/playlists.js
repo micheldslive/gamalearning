@@ -1,6 +1,6 @@
 export const playlists = [
   {
-    id: 0,
+    id: 1,
     name: "Conteúdos de soft skills e Carreira",
     week: "Semana 1",
     videos: [
@@ -18,7 +18,7 @@ export const playlists = [
   },
 
   {
-    id: 1,
+    id: 2,
     name: "Introdução ao mundo do desenvolvimento",
     week: "Semana 1",
     videos: [

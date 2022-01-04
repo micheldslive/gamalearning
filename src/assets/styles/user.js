@@ -28,8 +28,10 @@ export const UserHeader = styled.div`
 
 export const Title = styled.h2``;
 
-export const Subtitle = styled.h5`
+export const Subtitle = styled.span`
   font-family: sans-serif;
+  font-size: 1.25rem;
+  display: block;
 `;
 
 export const Image = styled.img`

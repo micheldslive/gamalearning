@@ -15,8 +15,16 @@ import {
   MapPinIcon,
 } from "assets/styles/user";
 import { Avatar } from "assets/styles/dashboard";
+import { connect } from "react-redux";
+import { mapDispatchToProps, mapStateToProps } from "redux/maps";
+import { useEffect } from "react";
 
-export const User = ({ user }) => {
+const User = ({ state, toggleAside }) => {
+  const { login, name, avatar_url, bio, public_repos, followers, following, location } = state.user;
+  
+  useEffect(() => {
+    toggleAside(false);
+  }, [toggleAside]);
     
   return (
     <>
@@ -24,31 +32,31 @@ export const User = ({ user }) => {
         <Container>
           <UserHeader>
             <Title>
-              <Subtitle>{user ? user.login : "micheldslive"}</Subtitle>
-              {user ? user.name : "Michel Domingos"}
+              <Subtitle>{login || "micheldslive"}</Subtitle>
+              {name || "Michel Domingos"}
             </Title>
-            <Image src={user ? user.avatar_url : Avatar}></Image>
+            <Image src={avatar_url || Avatar}></Image>
           </UserHeader>
           <Bio>
-            {user ? user.bio : "Mussum Ipsum, cacilds vidis litro abertis. Copo furadis é disculpa de bebadis, arcu quam euismod magna. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose."}
+            {bio || "Mussum Ipsum, cacilds vidis litro abertis. Copo furadis é disculpa de bebadis, arcu quam euismod magna. Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose."}
           </Bio>
           <GroupContainer>
             <GroupContent>
               <GroupIcon src={RespositoriesIcon} />
               <GroupTitle>
-                Repositories {user ? user.public_repos : "4"}
+                Repositories {public_repos || "15"}
               </GroupTitle>
             </GroupContent>
             <GroupContent>
               <GroupIcon src={FollowersIcon} />
               <GroupTitle>
-                {user ? user.followers : "0"} followers{" · "}
-                {user ? user.following : "0"} following
+                {followers || "0"} followers{" · "}
+                {following || "0"} following
               </GroupTitle>
             </GroupContent>
             <GroupContent>
               <GroupIcon src={MapPinIcon} />
-              <GroupTitle>{user ? user.location : "Recife-PE"}</GroupTitle>
+              <GroupTitle>{location || "Recife-PE"}</GroupTitle>
             </GroupContent>
           </GroupContainer>
         </Container>
@@ -56,3 +64,5 @@ export const User = ({ user }) => {
     </>
   );
 };
+
+export default (connect(mapStateToProps, mapDispatchToProps))(User);
