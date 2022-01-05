@@ -28,7 +28,10 @@
   <img src="https://github.com/micheldslive/gamalearning/blob/gamalearning/demo/demo.gif" alt="demo" />
 </p>
 
-#### 👀 Pré-visualização do Projeto: https://gamalearning.vercel.app/
+<p align="center">
+  👀 Pré-visualização do Projeto: https://gamalearning.vercel.app/
+</p>
+
 ---
 
 ## 📌 Seções
