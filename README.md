@@ -24,7 +24,9 @@
 
 **Gama Academy (Learning) é um pequeno projeto E-learning, idealizado / desenvolvido para que alunos e professores possam continuar a aprender e ensinar em qualquer lugar e a qualquer hora.**
 
-![https://github.com/micheldslive/gamalearning/blob/gamalearning/demo/demo.gif](https://github.com/micheldslive/gamalearning/blob/gamalearning/demo/demo.gif)
+<p align="center">	
+  <img src="https://github.com/micheldslive/gamalearning/blob/gamalearning/demo/demo.gif" alt="demo" />
+</p>
 
 #### 👀 Pré-visualização do Projeto: https://gamalearning.vercel.app/
 ---
@@ -34,20 +36,22 @@ Site composto por 4 seções:
 
 - **login:** Página incial com conexão ao perfil do Github;
 - **playlists:** Página para escolha da Playlist;
-- **playlists:id:::id::** Página que executará a playlist escolhida utilizando paremetros na url;
+- **playlists:module:::lesson::** Página que executará a playlist escolhida utilizando paremetros na url;
 - **user:** Página que exibe algumas infos do perfil digitado na página de Login;
 
 ---
 
 ## 🚀 Tecnologias utilizadas
 - ReactJS<br>
-     ✔  Layout responsivo e Estilização CSS utilizando `styled components` e o sistema de `grids bootstrap`.
+    ✔  Layout responsivo e Estilização CSS utilizando `styled components` e o sistema de `grids bootstrap`.
 
-     ✔  Requisição API Github utilizando o `axios`.
+    ✔  Requisição API Github utilizando o `axios`.
 
-     ✔  Rotas utilizando `react-router-dom`.
+    ✔  Rotas utilizando `react-router-dom`.
 
-     ✔  Títulos das páginas utilizando `react-helmet-async`.
+    ✔  centralização dos estados da aplicação utilizando `redux`.
+
+    ✔  Títulos das páginas utilizando `react-helmet-async`.
 
     ✔  Renderização / manipulação dos vídeos utilizando `videojs`.
 
