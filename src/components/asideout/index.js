@@ -1,20 +1,13 @@
-import React, { useRef, useEffect } from "react";
-import { AsideOpen } from "assets/styles/aside"
+import { useEffect } from "react";
 import { connect } from "react-redux";
-import { mapDispatchToProps } from "redux/maps";
+import { mapDispatchToProps } from "reducer/maps";
 
 const AsideOut = ({ toggleAside }) => {
-  const ref = useRef(null);
-
   useEffect(() => {
-    ref.current.click();
+    toggleAside(false);
   }, []);
 
-  return (
-    <>
-      <AsideOpen ref={ref} onClick={() => toggleAside(false)}></AsideOpen>
-    </>
-  );
+  return null;
 };
 
-export default (connect(null, mapDispatchToProps))(AsideOut);
+export default connect(null, mapDispatchToProps)(AsideOut);

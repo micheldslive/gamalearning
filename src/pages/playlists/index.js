@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Row from "react-bootstrap/Row";
 import { connect } from "react-redux";
-import { mapDispatchToProps, mapStateToProps } from "redux/maps";
+import { mapDispatchToProps, mapStateToProps } from "reducer/maps";
 import {
   Playlist,
   Container,
@@ -15,8 +15,8 @@ import {
 } from "assets/styles/playlists";
 
 const Playlists = ({ state }) => {
-  const { modules } = state;
-
+  const { modules } = state.gama;
+  
   return (
     <>
       <Helmet>
@@ -26,7 +26,7 @@ const Playlists = ({ state }) => {
       <Playlist>
         <Container>
           <Row>
-            {modules.map(({ id, week, name }) => (
+            {modules?.map(({ id, week, name }) => (
               <Column lg={4} key={id}>
                 <CardLink to={`/playlists/${id}/1`}>
                   <Card>
@@ -47,4 +47,4 @@ const Playlists = ({ state }) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Playlists);
+export default connect(mapStateToProps, null)(Playlists);

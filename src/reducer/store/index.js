@@ -1,7 +1,9 @@
-import { createStore } from "redux";
 import { playlists } from "services/playlists";
+import { defineState } from "redux-localstore";
+import { createStore, combineReducers } from "redux";
+import storeSynchronize from "redux-localstore";
 
-const initState = {
+const defaultState = {
   user: null,
   aside: false,
   checked: false,
@@ -12,7 +14,9 @@ const initState = {
   moduleArray: [],
 };
 
-const reducer = (state = initState, action) => {
+const initState = defineState(defaultState)('gama');
+
+const gama = (state = initState, action) => {
   if (action.type === "SET_ASIDE") {
     return {
       ...state,
@@ -45,4 +49,10 @@ const reducer = (state = initState, action) => {
   return state;
 };
 
-export const store = createStore(reducer);
+const combineReducer = combineReducers({
+  gama,
+});
+
+export const store = createStore(combineReducer);
+
+storeSynchronize(store);

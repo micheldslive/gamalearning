@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { mapStateToProps, mapDispatchToProps } from "redux/maps";
+import { mapStateToProps, mapDispatchToProps } from "reducer/maps";
 import {
   AsideImage,
   AsideImageUrl,
@@ -31,42 +31,43 @@ import {
   LessonIcon,
   LessonIconUrl,
   LessonTitle,
-} from "assets/styles/lessons"
+} from "assets/styles/lessons";
 
 const AsideIn = ({ props, state, toggleAside, toggleChecked }) => {
-
-  const { modules, aside, checked } = state;
-  const module = props.match.params - 1;
-
-  const ref = useRef(null);
+  const { modules, aside, checked } = state.gama;
+  const module = props.match.params.module - 1;
 
   const playlist = modules[module] || modules[0];
 
-  const  width = window.innerWidth;
+  const width = window.innerWidth;
   useEffect(() => {
     if (width > 992) {
-      ref.current.click();
+      toggleAside(true);
+    } else {
+      toggleAside(false);
     }
   }, [width]);
 
   return (
     <>
       <div>
-      <AsideOpen ref={ref} onClick={() => toggleAside(!aside)}></AsideOpen>
-      <NavLink to="/playlists">
-        <AsideImage src={AsideImageUrl}></AsideImage>
-      </NavLink>
-      <AsideHeader>
-        <AsideSmall>{playlist.week}</AsideSmall>
-        <AsideTitle>{playlist.name}</AsideTitle>
-      </AsideHeader>
+        <AsideOpen onClick={() => toggleAside(!aside)}></AsideOpen>
+        <NavLink to="/playlists">
+          <AsideImage src={AsideImageUrl}></AsideImage>
+        </NavLink>
+        <AsideHeader>
+          <AsideSmall>{playlist.week}</AsideSmall>
+          <AsideTitle>{playlist.name}</AsideTitle>
+        </AsideHeader>
       </div>
       <AutoPlayContent>
         <AutoPlayText>
-          Reprodução<br />Automatica:
+          Reprodução
+          <br />
+          Automatica:
         </AutoPlayText>
         <AutoPlay>
-          <AutoPlayCheck type="checkbox" checked={checked} onClick={() => toggleChecked(!checked)} readOnly/>
+          <AutoPlayCheck type="checkbox" checked={checked} onClick={() => toggleChecked(!checked)} readOnly />
           <AutoPlayKnobs />
           <AutoPlayLayer />
         </AutoPlay>
@@ -77,7 +78,7 @@ const AsideIn = ({ props, state, toggleAside, toggleChecked }) => {
         </LessonsHeader>
         <LessonsBody>
           <LessonsList>
-          {playlist.videos.map(({id, name}) => (
+            {playlist.videos.map(({ id, name }) => (
               <LessonLink key={id} to={`/playlists/${playlist.id}/${id}`} activeClassName="active">
                 <Lesson>
                   <LessonIcon src={LessonIconUrl} />

@@ -15,12 +15,12 @@ import {
   MapPinIcon,
 } from "assets/styles/user";
 import { connect } from "react-redux";
-import { mapDispatchToProps, mapStateToProps } from "redux/maps";
+import { mapDispatchToProps, mapStateToProps } from "reducer/maps";
 import { useEffect } from "react";
 import { defaultUser } from "services/user";
 
 const User = ({ state, toggleAside }) => {
-  const { login, name, avatar_url, bio, public_repos, followers, following, location } = state.user || defaultUser;
+  const { login, name, avatar_url, bio, public_repos, followers, following, location } = state.gama.user || defaultUser;
   
   useEffect(() => {
     toggleAside(false);

@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
-import { mapDispatchToProps, mapStateToProps } from "redux/maps";
+import { mapDispatchToProps, mapStateToProps } from "reducer/maps";
 import { BurgerContent, BurgerStyle, Bullets } from "assets/styles/dashboard";
 
 const Burger = ({ state, toggleAside }) => {
-  const { aside } = state
+  const { aside } = state.gama
   return (
     <BurgerContent>
       <BurgerStyle onClick={() => toggleAside(!aside)}>

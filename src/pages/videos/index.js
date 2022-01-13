@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { connect } from "react-redux";
-import { mapDispatchToProps, mapStateToProps } from "redux/maps";
+import { mapDispatchToProps, mapStateToProps } from "reducer/maps";
 import VideoJS from "utils/videojs";
 import {
   PlaylistContent,
@@ -15,7 +15,7 @@ import {
 } from "assets/styles/video";
 
 const Video = ({ props, state }) => {
-  const { checked, modules } = state;
+  const { checked, modules } = state.gama;
 
   const playerRef = useRef(null);
   const module = props.match.params.module - 1,

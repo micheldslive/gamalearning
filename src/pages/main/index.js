@@ -10,7 +10,7 @@ import Burguer from "components/hamburguer/Burguer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Page404 } from "pages/404";
 import { connect } from "react-redux";
-import { mapStateToProps } from "redux/maps";
+import { mapStateToProps } from "reducer/maps";
 import { AsideFixed, AsideToggle } from "assets/styles/aside";
 import {
   Dashboard,
@@ -27,7 +27,7 @@ import {
 } from "assets/styles/dashboard";
 
 const Main = ({ state }) => {
-  const { user } = state;
+  const { user } = state.gama;
 
   return (
     <Router>

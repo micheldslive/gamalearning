@@ -3,7 +3,7 @@ import { githubApi } from "services/github";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { connect } from "react-redux";
-import { mapDispatchToProps, mapStateToProps } from "redux/maps";
+import { mapDispatchToProps, mapStateToProps } from "reducer/maps";
 import {
   LoginContent,
   Container,
@@ -68,4 +68,4 @@ const Login = ({ props, toggleUser }) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(null, mapDispatchToProps)(Login);

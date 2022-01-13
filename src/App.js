@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import { store } from "redux/store";
+import { store } from "reducer/store";
 import ThemeProvider from "assets/styles/theme";
 import { GlobalStyle } from "./assets/styles/global";
 import Main from "./pages/main";
