@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "reducer/maps";
@@ -46,7 +46,7 @@ const AsideIn = ({ props, state, toggleAside, toggleChecked }) => {
     } else {
       toggleAside(false);
     }
-  }, [width]);
+  }, [width, toggleAside]);
 
   return (
     <>

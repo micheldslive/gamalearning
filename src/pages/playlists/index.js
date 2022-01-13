@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import Row from "react-bootstrap/Row";
 import { connect } from "react-redux";
-import { mapDispatchToProps, mapStateToProps } from "reducer/maps";
+import { mapStateToProps } from "reducer/maps";
 import {
   Playlist,
   Container,
@@ -16,7 +16,7 @@ import {
 
 const Playlists = ({ state }) => {
   const { modules } = state.gama;
-  
+
   return (
     <>
       <Helmet>

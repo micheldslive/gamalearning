@@ -3,7 +3,7 @@ import { githubApi } from "services/github";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { connect } from "react-redux";
-import { mapDispatchToProps, mapStateToProps } from "reducer/maps";
+import { mapDispatchToProps } from "reducer/maps";
 import {
   LoginContent,
   Container,
