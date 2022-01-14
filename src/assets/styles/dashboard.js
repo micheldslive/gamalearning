@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { NavLink } from "react-router-dom";
 import Logo from "assets/images/logo-gama.png";
 import Avatar from "assets/images/user-img.jpg";
@@ -19,20 +19,21 @@ export const StyledMenu = styled.nav`
   display: none;
 
   @media (max-width: 1180px) {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: #effffa;
-    transform: ${({ aside }) =>
-      aside ? "translateX(0)" : "translateX(-100%)"};
-    height: 100vh;
-    text-align: left;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: transform 0.3s ease-in-out;
+    ${({ theme }) => css`
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #effffa;
+      transform: ${theme.aside ? "translateX(0)" : "translateX(-100%)"};
+      height: 100vh;
+      text-align: left;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.3s ease-in-out;
+    `}
 
     a {
       font-size: 2rem;
@@ -57,52 +58,54 @@ export const BurgerContent = styled.div`
 `;
 
 export const BurgerStyle = styled.button`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 2rem;
-  height: 2rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10;
-
-  @media (max-width: 991px) {
-    position: ${(props) => (props.theme.aside ? "fixed" : "")};
-  }
-
-  &:focus {
-    outline: none;
-  }
-
-  span {
-    width: 2rem;
-    height: 0.25rem;
-    background: var(--purple);
-    border-radius: 10px;
-    transition: all 0.3s linear;
+  ${({ theme }) => css`
     position: relative;
-    transform-origin: 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
 
     @media (max-width: 991px) {
-      background: ${(props) => (props.theme.aside ? "var(--green)" : "var(--purple)")};
+      position: ${theme.aside ? "fixed" : ""};
     }
 
-    :first-child {
-      transform: ${(props) => (props.theme.aside ? "rotate(45deg)" : "rotate(0)")};
+    &:focus {
+      outline: none;
     }
 
-    :nth-child(2) {
-      opacity: ${(props) => (props.theme.aside ? "0" : "1")};
-      transform: ${(props) => (props.theme.aside ? "translateX(20px)" : "translateX(0)")};
-    }
+    span {
+      width: 2rem;
+      height: 0.25rem;
+      background: var(--purple);
+      border-radius: 10px;
+      transition: all 0.3s linear;
+      position: relative;
+      transform-origin: 1px;
 
-    :nth-child(3) {
-      transform: ${(props) => (props.theme.aside ? "rotate(-45deg)" : "rotate(0)")};
+      @media (max-width: 991px) {
+        background: ${theme.aside ? "var(--green)" : "var(--purple)"};
+      }
+
+      :first-child {
+        transform: ${theme.aside ? "rotate(45deg)" : "rotate(0)"};
+      }
+
+      :nth-child(2) {
+        opacity: ${theme.aside ? "0" : "1"};
+        transform: ${theme.aside ? "translateX(20px)" : "translateX(0)"};
+      }
+
+      :nth-child(3) {
+        transform: ${theme.aside ? "rotate(-45deg)" : "rotate(0)"};
+      }
     }
-  }
+  `}
 `;
 export const Bullets = styled.span``;
 

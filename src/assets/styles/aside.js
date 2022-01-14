@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import AsideImageUrl from "assets/images/hacker-header-icon.png";
 
 export { AsideImageUrl };
@@ -11,41 +11,45 @@ export const AsideImage = styled.img`
 `;
 
 export const AsideToggle = styled.div`
-  background-color: var(--purple);
-  width: ${(props) => (props.theme.aside ? "350px" : "0")};
-  transition: width 0.2s linear;
+  ${({ theme }) => css`
+    background-color: var(--purple);
+    width: ${theme.aside ? "350px" : "0"};
+    transition: width 0.2s linear;
+  `}
 `;
 
 export const AsideFixed = styled.div`
-  z-index: 2;
-  width: 350px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  transition: transform 0.2s linear;
-  transform: ${(props) => (!props.theme.aside ? "translateX(-350px)" : "")};
-  background-color: var(--purple);
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
-  grid-gap: 1rem;
-  align-content: start;
-  overflow: auto;
+  ${({ theme }) => css`
+    z-index: 2;
+    width: 350px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    transition: transform 0.2s linear;
+    transform: ${!theme.aside ? "translateX(-350px)" : ""};
+    background-color: var(--purple);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-gap: 1rem;
+    align-content: start;
+    overflow: auto;
 
-  &::-webkit-scrollbar {
-    width: 0.5em;
-  }
+    &::-webkit-scrollbar {
+      width: 0.5em;
+    }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--green);
-    outline: 1px solid var(--green);
-  }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--green);
+      outline: 1px solid var(--green);
+    }
 
-  @media (max-width: 991px) {
-    width: 100%;
-    transform: ${(props) => (!props.theme.aside ? "translateX(-100%)" : "")};
-  }
+    @media (max-width: 991px) {
+      width: 100%;
+      transform: ${!theme.aside ? "translateX(-100%)" : ""};
+    }
+  `}
 `;
 
 export const AsideHeader = styled.div`
